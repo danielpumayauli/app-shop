@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
+    // $product->category (Consultar la categoría de un producto determinado, un producto pertenece a una categoría, se lee: un producto pertenece a una categoría)
+    public function category(){
+    	return $this->belongsTo(Category::class);
+    }
+
+    // $product->images (Se lee: esto (la clase Product) tiene muchas imagenes)
+    
+    public function images(){
+     	return $this->hasMany(ProductImage::class);
+     }
+
 }
