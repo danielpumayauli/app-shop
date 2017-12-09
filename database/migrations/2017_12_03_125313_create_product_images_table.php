@@ -20,8 +20,8 @@ class CreateProductImagesTable extends Migration
             $table->boolean('featured')->default(false);
 
             // FK
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('product_id')->unsigned()->nullable(); // Puede ser nulo
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('set null');
 
             $table->timestamps();
         });
