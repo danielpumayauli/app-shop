@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use App\Cart;
+//use App\Cart;
 
 class User extends Authenticatable
 {
@@ -35,11 +35,11 @@ class User extends Authenticatable
     }
 
     // Accesor Para el cart_id
-    public function getCartIdAttribute(){
+    public function getCartAttribute(){
         //$carts = $this->carts // Para obtener todos los carritos asociados al usuario
         $cart = $this->carts()->where('status', 'Active')->first();
         if ($cart)
-            return $cart->id;
+            return $cart;
 
         // else
         $cart = new Cart();
@@ -47,7 +47,7 @@ class User extends Authenticatable
         $cart->user_id = $this->id;
         $cart->save();
 
-        return $cart->id;
+        return $cart;
 
 
     }
