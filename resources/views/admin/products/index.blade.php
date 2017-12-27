@@ -49,9 +49,13 @@
                                         <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" rel="tooltip" title="Editar Producto" class="btn btn-success btn-simple btn-xs">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{ url('/admin/products/'.$product->id.'/images') }}"  rel="tooltip" title="Imágenes del Producto" class="btn btn-warning btn-simple btn-xs">
+
+                                        <!-- -->
+                                        <a href="{{ url('/admin/products/'.encrypt($product->id).'/images') }}"  rel="tooltip" title="Imágenes del Producto" class="btn btn-warning btn-simple btn-xs">
                                             <i class="fa fa-image"></i>
                                         </a>
+
+                                        <!-- -->
                                         <button type="submit" rel="tooltip" title="Eliminar Producto" class="btn btn-danger btn-simple btn-xs">
                                             <i class="fa fa-times"></i>
                                         </button>
